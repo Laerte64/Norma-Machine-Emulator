@@ -30,5 +30,5 @@ struct Token
     size_t line, column;
     Token *past, *next;
     void *data;
-    bool *spaceAfter;
+    bool spaceAfter;
 };
