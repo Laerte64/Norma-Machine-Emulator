@@ -3,14 +3,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-typedef enum TokenType TokenType;
-typedef struct Token Token;
-
-Token* createToken(TokenType type, size_t line, size_t column, Token *past, void *data, bool spaceAfter);
-void destroyToken(Token *token);
-void printToken(char buffer[], size_t size, Token *token);
-
-enum TokenType
+typedef enum TokenType
 {
     token_identifier,
     token_number,
@@ -23,7 +16,13 @@ enum TokenType
     token_hlt,
     token_colon,
     token_undefined
-};
+} TokenType;
+
+typedef struct Token Token;
+
+Token* createToken(TokenType type, size_t line, size_t column, Token *past, void *data, bool spaceAfter);
+void destroyToken(Token *token);
+void printToken(char buffer[], size_t size, Token *token);
 
 struct Token
 {
