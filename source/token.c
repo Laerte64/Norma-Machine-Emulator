@@ -1,7 +1,7 @@
 #include "token.h"
 #include <stddef.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <errno.h>
 
@@ -19,7 +19,7 @@ Token* createToken(TokenType type, size_t line, size_t column, Token *past, void
     token->column = column;
 
     if (past == NULL)
-        token->past == NULL;
+        token->past = NULL;
     else
     {
         token->past = past;
@@ -47,7 +47,7 @@ void printToken(char buffer[], size_t size, Token *token)
         snprintf(buffer, size, "Identifier at l%zu c%zu: <%s>", token->line, token->column, (char*) token->data);
         break;
     case token_number:
-        snprintf(buffer, size, "Number at l%zu c%zu: <%zu>", token->line, token->column, *(unsigned int*) token->data);
+        snprintf(buffer, size, "Number at l%zu c%zu: <%u>", token->line, token->column, *(unsigned int*) token->data);
         break;
     case token_newline:
         snprintf(buffer, size, "NewLine at l%zu c%zu", token->line, token->column);
