@@ -20,6 +20,7 @@ enum TokenType
     token_dec,
     token_chk,
     token_jmp,
+    token_hlt,
     token_colon,
     token_undefined
 };

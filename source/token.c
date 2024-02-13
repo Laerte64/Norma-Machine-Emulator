@@ -67,6 +67,9 @@ void printToken(char buffer[], size_t size, Token *token)
     case token_jmp:
         snprintf(buffer, size, "Keyword at l%zu c%zu: <jmp>", token->line, token->column);
         break;
+    case token_hlt:
+        snprintf(buffer, size, "Keyword at l%zu c%zu: <hlt>", token->line, token->column);
+        break;
     case token_undefined:
         snprintf(buffer, size, "Undefined at l%zu c%zu", token->line, token->column);
         break;
@@ -74,5 +77,4 @@ void printToken(char buffer[], size_t size, Token *token)
         errno = EINVAL;
         break;
     }
-    
 }
