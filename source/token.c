@@ -47,7 +47,7 @@ void printToken(char buffer[], size_t size, Token *token)
         snprintf(buffer, size, "Identifier at l%zu c%zu: <%s>", token->line, token->column, (char*) token->data);
         break;
     case token_number:
-        snprintf(buffer, size, "Number at l%zu c%zu: <%zu>", token->line, token->column, *(size_t*) token->data);
+        snprintf(buffer, size, "Number at l%zu c%zu: <%zu>", token->line, token->column, *(unsigned int*) token->data);
         break;
     case token_newline:
         snprintf(buffer, size, "NewLine at l%zu c%zu", token->line, token->column);
